@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div class="container">
-	<h1>Produtos</h1>	
+	<h1>Produtos</h1>
 	<table class="table table-striped">
 		<thead>
 			<th>Nome</th>
@@ -17,8 +17,10 @@
 		<tbody>
 		<?php foreach ($produtos as $produto) : ?>
 			<tr>
-				<td><?= $produto["nome"] ?></td>
-				<td><?= $produto["descricao"] ?></td>
+				<td>
+					<?= anchor("produtos/{$produto['id']}", $produto["nome"])  ?>
+				</td>
+				<td><?= auto_typography(html_escape($produto["descricao"]))?> </td>
 				<td><?= numeroEmReais($produto["preco"]) ?></td>
 			</tr>
 		<?php endforeach ?>
